@@ -1,4 +1,6 @@
 module Data.State
+// See https://github.com/arialdomartini/state-monad-for-the-rest-of-us
+
 
 type State<'s, 'v> = State of ('s -> 'v * 's)
 
