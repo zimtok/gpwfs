@@ -2,42 +2,25 @@
 
 open Data.ResultExtension
 open Capstone2.Account
+open Capstone2.ConsoleIO
 open System
+
 
 let printError (s: string) =
     Console.WriteLine $"ERROR: {s}"
 
-let cliWriter account transaction =
-    printf $"{account.Name}; {toString transaction}; {account.Balance}\n"
-    Ok ()
 
+let main =
+    let account, transactions = cliReader
+    let accumulate = processLine veryDumbParser cliAudit
+    let collected =
+        result {
+            let! a = account
+            let! t = transactions
+            return! Seq.fold (fun acc curr -> Result.bind (fun a -> accumulate a curr) acc) (Ok a) t
+        }
+    match collected with
+        | Ok a -> printf $"{a.Name}: {a.Balance}"
+        | Error e -> printError e
 
-[<TailCall>]
-let rec mainLoop account =
-    let input = Console.ReadLine()
-    if String.IsNullOrEmpty input
-        then exit 0
-    let r = processLine veryDumbParser cliWriter account input
-    (Result.mapError printError r) |> ignore
-    mainLoop (Result.defaultValue account r)
-    ()
-
-let readName =
-    Console.WriteLine("Enter your name:")
-    let name = Console.ReadLine()
-    if String.IsNullOrEmpty name then Error "invalid name" else Ok name
-
-let readStartingBalance =
-    Console.WriteLine("Enter your starting balance:")
-    let balance = Console.ReadLine()
-    tryToResult parseBalance balance
-
-result {
-    let! name = readName
-    let! balance = readStartingBalance
-    let account = {
-        Name = name
-        Balance = balance
-    }
-    return (mainLoop account)
-} |> ignore
+main

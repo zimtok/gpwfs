@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Account.fs" />
+    <Compile Include="ConsoleIO.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
