@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Data", "Data\Data.fsproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Capstone2", "Capstone2\Capstone2.fsproj", "{33D4DA32-BB52-48D1-A873-588CEE5484CC}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Capstone4", "Capstone4\Capstone4.fsproj", "{6F195EE4-049C-4394-BAE3-E9618EB573D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{33D4DA32-BB52-48D1-A873-588CEE5484CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33D4DA32-BB52-48D1-A873-588CEE5484CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33D4DA32-BB52-48D1-A873-588CEE5484CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F195EE4-049C-4394-BAE3-E9618EB573D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F195EE4-049C-4394-BAE3-E9618EB573D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F195EE4-049C-4394-BAE3-E9618EB573D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F195EE4-049C-4394-BAE3-E9618EB573D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
